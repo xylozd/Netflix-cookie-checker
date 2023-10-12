@@ -5,13 +5,13 @@ import tkinter
 from tkinter import filedialog
 import shutil
 
-while True:
-    print("\n<<< Select Netscape cookies folder >>>\n\n")
-    tkinter.Tk().withdraw()
-    folder_path = filedialog.askdirectory()
-    if folder_path != "":
-        break
-
+# while True:
+#     print("\n<<< Select Netscape cookies folder >>>\n\n")
+#     tkinter.Tk().withdraw()
+#     folder_path = filedialog.askdirectory()
+#     if folder_path != "":
+#         break
+folder_path='/content/Netflix-cookie-checker/Cookies'
 rand_number = random.randint(1, 99999)
 
 
