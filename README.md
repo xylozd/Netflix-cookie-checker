@@ -1,6 +1,10 @@
 
 # Netflix Cookie Checker
 
+<a target="_blank" href="https://colab.research.google.com/github/groozaop/Netflix-cookie-checker/blob/master/Colab.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 **Checks Cookies for validity.**
 
 ![Logo](images/netflix_logo.jpg)
