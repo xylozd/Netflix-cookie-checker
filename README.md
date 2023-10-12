@@ -9,9 +9,10 @@
 # Installation
 
 ```cmd
-  git clone https://github.com/matheeshapathirana/Netflix-cookie-checker.git
-  cd Netflix-cookie-checker
-  pip install -r requirements.txt
+  !git clone https://github.com/xylozd/Netflix-cookie-checker.git
+  %cd Netflix-cookie-checker
+  !mkdir Cookies
+  !pip install -r requirements.txt
 ```
 # Usage
 
