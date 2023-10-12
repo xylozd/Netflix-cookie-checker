@@ -2,41 +2,45 @@ import json
 import os
 import tkinter
 from tkinter import filedialog
-import config
+# import config
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
+from webdriver_manager.firefox import GeckoDriverManager
+import time
 
 working_cookies_path = "working_cookies"
 
-if config.use_folder_selector:
-    tkinter.Tk().withdraw()
-    folder_path = filedialog.askdirectory()
-    if folder_path == "":
-        folder_path = "json_cookies"
-        print("Using default path")
-    else:
-        print(f"Using path: {folder_path}")
+
+      
+folder_path = "json_cookies"
 
 
 def load_cookies_from_json(FILEPATH):
     with open(FILEPATH, "r") as cookie_file:
         cookie = json.load(cookie_file)
+        
     return cookie
 
 
 def open_webpage_with_cookies(URL, COOKIES):
-    firefox_options = Options()
-    firefox_options.headless = True
-    driver = webdriver.Firefox(options=firefox_options)
-    if config.use_minimized:
-        driver.minimize_window()
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    # open it, go to a website, and get results
+    driver = webdriver.Chrome(options=options)
+
+   
+    
     driver.get(URL)
+    
 
     for cookie in COOKIES:
         driver.add_cookie(cookie)
 
     driver.refresh()
+    print(driver.get_cookies())
 
     if driver.find_elements(By.CSS_SELECTOR, ".btn"):
         print(f"Cookie Not working - {filename}")
@@ -55,8 +59,8 @@ def open_webpage_with_cookies(URL, COOKIES):
             driver.quit()
 
 
-for filename in os.listdir("json_cookies"):
-    filepath = os.path.join("json_cookies", filename)
+for filename in os.listdir("/content/Netflix-cookie-checker/json_cookies"):
+    filepath = os.path.join("/content/Netflix-cookie-checker/json_cookies", filename)
     if os.path.isfile(filepath):
         with open(filepath, "r") as file:
             content = file.read()
@@ -64,7 +68,9 @@ for filename in os.listdir("json_cookies"):
             url = "https://netflix.com/login"
 
             try:
+                print("We are trying....")
                 cookies = load_cookies_from_json(filepath)
                 open_webpage_with_cookies(url, cookies)
             except:
                 print(f"Invalid Cookie or webdriver error - {filename}")
+                time.sleep(2)
