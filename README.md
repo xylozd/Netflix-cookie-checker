@@ -1,5 +1,13 @@
+# This repo is fork from https://github.com/matheeshapathirana/Netflix-cookie-checker .
 
+All thanks to him for providing the logic and basic framework. I just made few changes so that it can run on google colab.
+
+# For Educational purpose only. I'm not responsible for any mischief done using these codes. Cheers.....
 # Netflix Cookie Checker
+
+<a target="_blank" href="https://colab.research.google.com/github/groozaop/Netflix-cookie-checker/blob/master/Colab.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 **Checks Cookies for validity.**
 
@@ -16,8 +24,8 @@
 ```
 # Usage
 
-1.  Run [cookie_converter.py](https://github.com/matheeshapathirana/Netflix-cookie-checker/blob/b82b684355a80e23f5648e6082090d9cd5332cc3/cookie_converter.py) to convert Netscape cookies to json format.
-2. Makesure geckodriver is inside the Netflix-cookie-checker folder.
+1. Upload all cookies txt files into Cookies folder.
+2.  Run [cookie_converter.py](https://github.com/matheeshapathirana/Netflix-cookie-checker/blob/b82b684355a80e23f5648e6082090d9cd5332cc3/cookie_converter.py) to convert Netscape cookies to json format.
 
 3. Run [main.py](https://github.com/matheeshapathirana/Netflix-cookie-checker/blob/b82b684355a80e23f5648e6082090d9cd5332cc3/main.py)
 
